@@ -31,7 +31,7 @@ before_install:
   - docker-compose -f docker-compose.yml -f docker/docker-compose.${KAFKA_VERSION}.yml down
   - docker-compose -f docker-compose.yml -f docker/docker-compose.${KAFKA_VERSION}.yml up -d
 before_script:
-  - npm install -g eslint@6.0.0
+  # - npm install -g eslint@6.0.0
   - npm prune
 after_failure:
   - docker ps
