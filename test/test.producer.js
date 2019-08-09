@@ -39,7 +39,9 @@ var client, producer, noAckProducer, producerKeyed;
       producer = new Producer(client);
       noAckProducer = new Producer(client, { requireAcks: 0 });
       producerKeyed = new Producer(client, { partitionerType: Producer.PARTITIONER_TYPES.keyed });
-
+      
+      TOPIC_POSTFIX = '_test_' + Date.now();
+      EXISTS_TOPIC_3 = '_exists_3' + TOPIC_POSTFIX;
       async.series(
         [
           function (callback) {
@@ -63,6 +65,8 @@ var client, producer, noAckProducer, producerKeyed;
         producer.send([{ topic: EXISTS_TOPIC_3, messages: '_initial' }], function (err, message) {
           message.should.be.ok;
           console.log('received property(\'0\', 0) expect from message: %s ', JSON.stringify(message));
+          // v 0.10.0 partition : offset
+          // v 2.0.0
           message[EXISTS_TOPIC_3].should.have.property('0', 0);
           done(err);
         });
