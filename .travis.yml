@@ -18,8 +18,9 @@ env:
     # - KAFKA_VERSION=1.1
     # - KAFKA_VERSION=2.0
     - KAFKA_VERSION=2.3.0-mf-0.10.2
+    - KAFKA_VERSION=2.3.0-mf-2.0.0
     - KAFKA_VERSION=2.3.0-mf-2.3.0
-    
+
   global:
     - DEBUG=kafka-node:*
     - KAFKA_ADVERTISED_HOST_NAME=127.0.0.1
