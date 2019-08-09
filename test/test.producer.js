@@ -62,6 +62,7 @@ var client, producer, noAckProducer, producerKeyed;
         // Ensure that first message gets the `0`
         producer.send([{ topic: EXISTS_TOPIC_3, messages: '_initial' }], function (err, message) {
           message.should.be.ok;
+          console.log('received property(\'0\', 0) expect from message: %s ', JSON.stringify(message));
           message[EXISTS_TOPIC_3].should.have.property('0', 0);
           done(err);
         });
