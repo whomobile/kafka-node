@@ -39,7 +39,6 @@ var client, producer, noAckProducer, producerKeyed;
       producer = new Producer(client);
       noAckProducer = new Producer(client, { requireAcks: 0 });
       producerKeyed = new Producer(client, { partitionerType: Producer.PARTITIONER_TYPES.keyed });
-      
       TOPIC_POSTFIX = '_test_' + Date.now();
       EXISTS_TOPIC_3 = '_exists_3' + TOPIC_POSTFIX;
       async.series(
