@@ -33,6 +33,6 @@ before_script:
   - npm prune
 after_failure:
   - docker ps
-  - docker-compose logs
+  - docker-compose  -f docker-compose.yml -f docker/docker-compose.${KAFKA_VERSION}.yml logs
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
